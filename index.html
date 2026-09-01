@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Portfolio | Mohammed Alduraibi</title>
-    <!-- استدعاء خطوط تشبه الرسم اليدوي والكتابة التقنية من جوجل -->
+    <title>Mohammed Al-Zahrani | Computer Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #0f172a; /* لون المخطط الأزرق الداكن */
-            --grid-color: rgba(56, 189, 248, 0.1); /* لون الشبكة الهندسية */
-            --sketch-color: #38bdf8; /* لون القلم الرصاص/المخطط */
+            /* LEAP Purple Theme */
+            --bg-color: #130a21; 
+            --grid-color: rgba(188, 110, 255, 0.15); 
+            --sketch-color: #c084fc; 
             --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-yellow: #fde047; /* لون التظليل لإبراز الكلمات */
+            --text-secondary: #d8b4fe; 
+            
+            /* Yellow Accents for Projects */
+            --accent-yellow: #fde047;
+            --accent-green: #4ade80;
             
             --font-sketch: 'Architects Daughter', cursive;
             --font-code: 'Fira Code', monospace;
@@ -23,7 +26,6 @@
 
         body {
             background-color: var(--bg-color);
-            /* إنشاء خلفية الشبكة الهندسية (Blueprint Grid) */
             background-image: 
                 linear-gradient(var(--grid-color) 1px, transparent 1px),
                 linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
@@ -37,7 +39,21 @@
             overflow-x: hidden;
         }
 
-        /* رسومات الخلفية (SVGs) */
+        .leap-badge {
+            background-color: var(--sketch-color);
+            color: #130a21;
+            text-align: center;
+            padding: 10px;
+            font-family: var(--font-code);
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px dashed #130a21;
+        }
+
+        /* SVGs Background */
         .bg-sketch {
             position: absolute;
             z-index: -1;
@@ -52,64 +68,136 @@
         .turbine-sketch { bottom: 10%; left: 5%; width: 180px; }
         .circuit-sketch { top: 40%; right: 10%; width: 200px; }
 
-        header {
-            padding: 60px 20px 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        h1 {
-            font-family: var(--font-sketch);
-            color: var(--sketch-color);
-            margin: 0;
-            font-size: 3.5rem;
-            transform: rotate(-2deg); /* ميلان بسيط كالكتابة اليدوية */
-            display: inline-block;
-        }
-
-        .contact-info {
-            font-family: var(--font-code);
-            color: var(--text-secondary);
-            margin-top: 20px;
-            font-size: 0.9rem;
-        }
-
-        .contact-info span {
-            margin: 0 10px;
-            display: inline-block;
-        }
-
         .container {
             max-width: 850px;
             margin: 0 auto 60px;
             padding: 0 20px;
         }
 
+        /* Hero Section with Buttons */
+        .hero {
+            padding: 60px 0 40px;
+            border-bottom: 2px dashed var(--sketch-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: var(--font-sketch);
+            color: var(--sketch-color);
+            margin: 0 0 10px 0;
+            font-size: 3.5rem;
+            transform: rotate(-1deg);
+        }
+
+        .hero h2 {
+            font-family: var(--font-code);
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin: 0 0 20px 0;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            text-decoration: none;
+            font-family: var(--font-code);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; 
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--sketch-color);
+            color: var(--bg-color);
+            border: 2px solid var(--sketch-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) rotate(1deg);
+            box-shadow: 4px 4px 0px rgba(192, 132, 252, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--sketch-color);
+            border: 2px solid var(--sketch-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(192, 132, 252, 0.1);
+        }
+
+        /* Sections */
         .section {
-            background-color: rgba(15, 23, 42, 0.8);
+            background-color: rgba(19, 10, 33, 0.85);
             backdrop-filter: blur(5px);
             padding: 35px;
-            margin-bottom: 40px;
-            /* تأثير رسم الإطار باليد (Hand-drawn border effect) */
+            margin-bottom: 35px;
             border: 2px solid var(--sketch-color);
             border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-            box-shadow: 4px 4px 0px rgba(56, 189, 248, 0.2);
+            box-shadow: 4px 4px 0px rgba(192, 132, 252, 0.15);
             transition: all 0.3s ease;
         }
 
         .section:hover {
-            transform: translateY(-3px) rotate(1deg);
-            box-shadow: 8px 8px 0px rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
         }
 
-        h2 {
+        /* Timeline / Co-op Box */
+        .timeline-box {
+            border-color: var(--accent-yellow);
+            background-color: rgba(253, 224, 71, 0.05);
+            box-shadow: 4px 4px 0px rgba(253, 224, 71, 0.2);
+        }
+
+        h3.section-title {
+            font-family: var(--font-sketch);
+            color: var(--sketch-color);
+            font-size: 1.8rem;
+            margin-top: 0;
+            border-bottom: 2px dashed var(--sketch-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Yellow Theme for Projects */
+        #projects {
+            border-color: var(--accent-yellow);
+            box-shadow: 4px 4px 0px rgba(253, 224, 71, 0.15);
+        }
+
+        #projects h3.section-title {
+            color: var(--accent-yellow);
+            border-bottom-color: var(--accent-yellow);
+        }
+
+        .project-title {
             font-family: var(--font-sketch);
             color: var(--accent-yellow);
-            font-size: 2rem;
-            margin-top: 0;
-            border-bottom: 2px dashed var(--text-secondary);
-            padding-bottom: 10px;
-            letter-spacing: 1px;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         ul {
@@ -118,9 +206,10 @@
         }
 
         li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             position: relative;
             padding-left: 25px;
+            font-size: 0.95rem;
         }
 
         li::before {
@@ -132,25 +221,27 @@
             top: 2px;
         }
 
-        strong {
+        #projects li::before {
             color: var(--accent-yellow);
-            font-weight: 600;
         }
 
-        .highlight-marker {
-            background-color: rgba(253, 224, 71, 0.15);
-            border-bottom: 2px solid var(--accent-yellow);
-            padding: 0 4px;
+        .status-badge {
             font-family: var(--font-code);
-            font-size: 0.9em;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px dashed;
         }
 
-        .project-title {
-            font-family: var(--font-sketch);
-            color: var(--sketch-color);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            margin-top: 20px;
+        .status-completed { color: var(--accent-green); border-color: var(--accent-green); }
+        .status-research { color: var(--sketch-color); border-color: var(--sketch-color); }
+
+        .project-label {
+            font-family: var(--font-code);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: inline-block;
+            width: 110px;
         }
 
         footer {
@@ -158,14 +249,31 @@
             font-family: var(--font-code);
             color: var(--text-secondary);
             padding: 30px;
-            border-top: 1px solid var(--grid-color);
+            border-top: 1px dashed var(--grid-color);
             font-size: 0.85rem;
+        }
+        
+        .contact-info {
+            font-family: var(--font-code);
+            color: var(--text-secondary);
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a {
+            color: var(--sketch-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-yellow);
         }
     </style>
 </head>
 <body>
 
-    <!-- رسومات هندسية بالـ SVG تطفو في الخلفية -->
     <svg class="bg-sketch drone-sketch" viewBox="0 0 100 100">
         <path d="M40,45 L20,30 M60,45 L80,30 M40,55 L20,70 M60,55 L80,70" />
         <rect x="35" y="40" width="30" height="20" rx="5" />
@@ -174,7 +282,6 @@
         <ellipse cx="20" cy="75" rx="18" ry="4" transform="rotate(15 20 75)" />
         <ellipse cx="80" cy="75" rx="18" ry="4" transform="rotate(-15 80 75)" />
     </svg>
-
     <svg class="bg-sketch turbine-sketch" viewBox="0 0 100 100">
         <path d="M48,100 L45,30 M52,100 L55,30" />
         <path d="M50,30 Q30,10 15,15 Q30,25 50,30" />
@@ -184,78 +291,74 @@
         <path d="M20,95 Q50,110 80,95" />
     </svg>
 
-    <svg class="bg-sketch circuit-sketch" viewBox="0 0 100 100">
-        <path d="M10,50 L35,50 L45,20 L80,20" />
-        <circle cx="10" cy="50" r="3" />
-        <circle cx="80" cy="20" r="3" />
-        <path d="M35,50 L50,80 L90,80" />
-        <circle cx="90" cy="80" r="3" />
-        <circle cx="35" cy="50" r="3" />
-    </svg>
-
-    <header>
-        <h1>Mohammad Abdullah Alduraibi</h1>
-        <div class="contact-info">
-            <span>[+966565134377]</span> | 
-            <span>[mabh.alduraibi@gmail.com]</span> | 
-            <span><a href="https://www.linkedin.com/in/mohammed-al-zahrani-304a9b238
-
-" style="color: var(--accent-yellow); text-decoration: none;">[Linkedin Account]</a></span>
-        </div>
-    </header>
+    <div class="leap-badge">
+        🚀 Attending LEAP 2026 — Riyadh | Open to connecting with engineers & Co-op opportunities
+    </div>
 
     <div class="container">
         
-        <div class="section">
-            <h2>About The Engineer</h2>
-            <p>Driven and strategic <strong>Computer Engineering</strong> senior with a strong foundation in <span class="highlight-marker">IoT Ecosystems</span>, smart city infrastructures, and renewable energy tech. Possesses a T-shaped engineering mindset, combining a broad understanding of systemic integration with a deep passion for autonomous mobility (drones) and wind energy optimization. Adept at conceptualizing innovative solutions aligned with Saudi Vision 2030.</p>
-        </div>
-
-        <div class="section">
-            <h2>Academic Blueprint</h2>
-            <p style="font-family: var(--font-code); color: var(--sketch-color);">Bachelor of Science in Computer Engineering</p>
-            <p>Taif University, Taif, KSA | Expected: <strong>[Jul , 2027 ]</strong></p>
-            <ul>
-                <li><strong>Core Focus:</strong> IoT Architecture, Smart Energy Grids, Renewable Energy Innovation, Cloud Infrastructure, and AI Applications.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Technical Specs & Skills</h2>
-            <ul>
-                <li><strong>Domain Knowledge:</strong> IoT Ecosystems, Smart City Solutions, Autonomous Systems (Drones/UAVs), Wind Energy Technologies, Climate Tech.</li>
-                <li><strong>Engineering Focus:</strong> R&D Methodologies, Systems Integration, Predictive Maintenance Concepts, Remote Asset Monitoring.</li>
-                <li><strong>Soft Skills:</strong> Strategic Problem Solving, Technical Pitching, Fast Learner, Cross-functional Communication.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Drafts & Prototypes (Projects)</h2>
+        <div class="hero">
+            <h1>Mohammed Al-Zahrani</h1>
+            <h2>Computer Engineering Student | IoT • Cloud • Embedded Systems</h2>
+            <div class="contact-info">
+                <span style="color: var(--accent-yellow);">+966 56 513 4377</span> | 
+                <a href="https://www.linkedin.com/in/mohammed-al-zahrani-304a9b238" target="_blank">[LinkedIn]</a> | 
+                <a href="https://github.com/helloMABH" target="_blank">[GitHub]</a>
+            </div>
             
-            <div class="project-title">AI-Powered Satellite Integration for Wind Energy</div>
-            <ul>
-                <li>Conceptualizing a framework leveraging AI-powered satellite data to analyze wind currents and optimize vertical-axis wind turbines in smart cities like <span class="highlight-marker">NEOM</span>.</li>
-                <li>Enhancing clean energy generation efficiency using predictive modeling and secure IoT communication protocols.</li>
-            </ul>
+            <p style="margin-top: 20px;">Final-year Computer Engineering student interested in building connected intelligent systems at the intersection of IoT, algorithms, and practical hardware integrations.</p>
             
-            <div class="project-title">Smart Grid & IoT Infrastructure Exploration</div>
-            <ul>
-                <li>Researching scalable cloud strategies and remote data acquisition methods to improve the sustainability and reliability of urban energy grids.</li>
-            </ul>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="https://www.linkedin.com/in/mohammed-al-zahrani-304a9b238" target="_blank" class="btn btn-outline">Connect on LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="section timeline-box">
+            <h3 class="section-title" style="color: var(--accent-yellow); border-bottom-color: var(--accent-yellow);">Timeline & Co-op Target</h3>
+            <p>I am seeking a six-month <strong>Cooperative Training (Co-op)</strong> starting in <strong style="color: var(--accent-yellow); font-family: var(--font-code);">July 2020</strong> to contribute to real-world projects in IoT, Cloud Computing, and Embedded Systems.</p>
+            <p style="margin-top: 10px; font-family: var(--font-code); font-size: 0.9rem;">-> Expected Graduation: <strong style="color: var(--text-primary);">July 2020</strong></p>
         </div>
 
         <div class="section">
-            <h2>Field Engagement</h2>
+            <h3 class="section-title">Technical Specs</h3>
             <ul>
-                <li><strong>LEAP x DeepFest 2026 Participant:</strong> Actively engaging with global deep tech startups and top-tier consulting firms to bridge academic theories with commercial applications.</li>
-                <li>Targeting advanced technical sessions on AI Governance, Solar-powered Airships, and Future Engineering Pathways.</li>
+                <li><strong style="color: var(--sketch-color);">IoT & Embedded:</strong> Hardware Sensors Integration, Microcontrollers (Basics), Embedded Systems Concepts.</li>
+                <li><strong style="color: var(--sketch-color);">Programming:</strong> MATLAB, C/C++ (Academic Level), Algorithm Logic.</li>
+                <li><strong style="color: var(--sketch-color);">Networking & Tech:</strong> IoT Communication Protocols, Circuit Analysis, Data Structuring.</li>
+            </ul>
+        </div>
+
+        <div class="section" id="projects">
+            <h3 class="section-title">Proof of Work (Projects)</h3>
+            
+            <div class="project-title">Interactive Lighting System <span class="status-badge status-completed">Completed Prototype</span></div>
+            <ul>
+                <li><span class="project-label">Concept:</span> Designing a responsive hardware setup that interacts dynamically with physical inputs.</li>
+                <li><span class="project-label">What I Built:</span> Engineered a functional interactive lighting prototype by integrating physical hardware sensors with basic control logic.</li>
+                <li><span class="project-label">Focus:</span> Hardware Integration • Sensors • Basic Control Systems</li>
+            </ul>
+            
+            <div class="project-title">Z-Transform DSP Simulation <span class="status-badge status-completed">Completed</span></div>
+            <ul>
+                <li><span class="project-label">Problem:</span> Visualizing complex signal processing math requires intuitive engineering tools for accuracy.</li>
+                <li><span class="project-label">What I Built:</span> Developed a MATLAB-driven simulation tool to model the Z-transform and visualize digital signal processing (DSP) system behavior.</li>
+                <li><span class="project-label">Focus:</span> MATLAB • DSP • Mathematical Modeling</li>
+            </ul>
+
+            <div class="project-title" style="color: var(--sketch-color);">Strategic Concept Goals <span class="status-badge status-research">Exploration Stage</span></div>
+            <p style="font-family: var(--font-code); font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">// High-level engineering frameworks I am researching. (Specific operational details are kept confidential).</p>
+            <ul>
+                <li><strong style="color: #fff;">Energy-Efficient Smart Cities:</strong> Concepts for maximizing power efficiency in urban infrastructures.</li>
+                <li><strong style="color: #fff;">Satellite-Optimized Wind Energy:</strong> Exploring how remote data can enhance turbine output.</li>
+                <li><strong style="color: #fff;">Traffic Safety Solutions:</strong> Theoretical systems to proactively reduce automotive accidents.</li>
             </ul>
         </div>
 
     </div>
 
     <footer>
-        <p>// Engineered for Impact | Designed with code & passion // </p>
+        <p>// Engineered for Impact | Designed for LEAP 2026 //</p>
     </footer>
 
 </body>
